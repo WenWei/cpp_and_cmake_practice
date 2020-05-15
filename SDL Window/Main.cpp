@@ -21,29 +21,6 @@ int main(int argc, char *argv[]) {
     return 2;
   }
 
-  SDL_Renderer *renderer =
-      SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
-  SDL_Texture *texture =
-      SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
-                        SDL_TEXTUREACCESS_STATIC, SCREEN_WIDTH, SCREEN_HEIGHT);
-
-  if (renderer == NULL) {
-    cout << "Could not create renderer" << endl;
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    return 3;
-  }
-
-  if (texture == NULL) {
-    cout << "Could not create texture" << endl;
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    return 4;
-  }
-
-  Uint32 *buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
-
   bool quit = false;
   while (!quit) {
     // Update particles
@@ -58,9 +35,6 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  delete[] buffer;
-  SDL_DestroyTexture(texture);
-  SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   SDL_Quit();
 
