@@ -1,0 +1,26 @@
+﻿# CMakeList.txt : Top-level CMake project file, do global configuration
+# and include sub-projects here.
+#
+cmake_minimum_required (VERSION 3.8)
+
+project ("CMakeProjectDemo")
+
+# Include sub-projects.
+add_subdirectory ("CMakeProjectDemo")
+add_subdirectory ("Reversing_a_string")
+add_subdirectory ("References")
+add_subdirectory ("Const")
+add_subdirectory ("New Operator")
+add_subdirectory ("Returning Objects from Methods")
+add_subdirectory ("Allocating Memory")
+add_subdirectory ("Arrays And Functions")
+add_subdirectory ("Namespaces")
+add_subdirectory ("Inheritance")
+add_subdirectory ("Encapsulation")
+add_subdirectory ("Inheritance and Construction")
+add_subdirectory ("Two Complement")
+add_subdirectory ("Static")
+add_subdirectory ("SDL-Test")
+add_subdirectory ("SDL Basic")
+add_subdirectory ("SDL Window")
+add_subdirectory ("SDL Enabling Pixel Access")
