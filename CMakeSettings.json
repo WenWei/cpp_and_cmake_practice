@@ -13,7 +13,7 @@
       "variables": [
         {
           "name": "SDL2_DIR",
-          "value": "D:/code/github.com/wenwei/CMakeProjectDemo/lib/SDL2",
+          "value": "D:/code/github.com/wenwei/cpp_and_cmake_practice/lib/SDL2",
           "type": "PATH"
         }
       ]

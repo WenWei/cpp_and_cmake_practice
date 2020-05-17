@@ -40,16 +40,27 @@ bool cww::Screen::init() {
 
   memset(m_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
 
-  for (int i = 0; i < SCREEN_WIDTH * SCREEN_HEIGHT; i++) {
-    m_buffer[i] = 0xFFFF00FF;
-  }
+  return true;
+}
 
+void cww::Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue) {
+  Uint32 color = 0;
+  color += red;
+  color <<= 8;
+  color += green;
+  color <<= 8;
+  color += blue;
+  color <<= 8;
+  color += 0xFF;
+
+  m_buffer[(y * SCREEN_WIDTH) + x] = color;
+}
+
+void cww::Screen::update() {
   SDL_UpdateTexture(m_texture, NULL, m_buffer, SCREEN_WIDTH * sizeof(Uint32));
   SDL_RenderClear(m_renderer);
   SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
   SDL_RenderPresent(m_renderer);
-
-  return true;
 }
 
 bool cww::Screen::processEvents() {
